@@ -8,11 +8,16 @@
 <body>
     <h1>Course Catalog</h1>
     <hr>
+    <h2>Total PG Courses {{count.PG}}</h2>
+    <h2>Total UG Courses {{count.UG}}</h2>
+    {% if count.PG > 3 %}
+    <h2>NAAC Accrediated</h2>
+    {% endif %}
+    <h2><u>Available Courses</u></h2>
     <ul>
-        <li>Btech CS</li>
-        <li>Btech ECE</li>
-        <li>Mtech Cyber Security</li>
-        <li>Mtech Embdedded Systems</li>
+        {% for item in courses %}
+        <li>{{item}}</li>
+        {% endfor %}
     </ul>
 </body>
 </html>
