@@ -6,12 +6,25 @@
     <title>Students List</title>
 </head>
 <body>
+    {# We are using DTL to render the context values received #}
+    <h2><u>Admission Status</u></h2>
+    {% if adm_data.admission_closed %}
+    <h3 style="color:red">Admission Closed for the Academic Year</h3>
+    {% else %}
+    <h3 style="color:green">Admission is still open</h3>
+    {% endif %}
+    <h2>Total Students Enrolled {{adm_data.count}}</h2>
+    {% if adm_data.count <= 50 %}
+    <h3>Total enrollements are less than last year</h3>
+    {% endif %}
     <h1>Student Details</h1>
     <table border="1">
         <tr><th>Sl No</th><th>Name</th><th>Semester</th><th>Course</th></tr>
+        {% for stud in adm_data.students %}
         <tr>
-            <td>1</td><td>dummy</td><td>NA</td><td>NA</td>
+            <td>{{stud.slno}}</td><td>{{stud.name}}</td><td>{{stud.sem}}</td><td>{{stud.course}}</td>
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>
