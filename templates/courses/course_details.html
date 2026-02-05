@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<table border="1">
+    <tr><th>Name</th><th>Specialization</th><th>fee</th></tr>
+    {% for record in details %}
+    <tr><td>{{record.name}}</td><td>{{record.specialization}}</td><td>{{record.fee}}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
