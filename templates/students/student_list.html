@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students List</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     {# We are using DTL to render the context values received #}
     <h2><u>Admission Status</u></h2>
     {% if adm_data.admission_closed %}
@@ -26,5 +20,5 @@
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+    {% include 'partials/form.html' %}
+{% endblock %}
