@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
     <h1>Contact Page</h1>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, adipisci odit est alias libero, excepturi doloribus neque quod labore quibusdam non earum nisi qui perspiciatis accusamus impedit laborum. Unde, perspiciatis.</p>
-</body>
-</html>
+
+    {% include 'partials/form.html' %}
+    
+{% endblock %}

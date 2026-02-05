@@ -1,0 +1,27 @@
+ body
+        {
+            background-color: lightblue
+        }
+        h1
+        {
+            color:red
+        }
+        nav a
+        {
+            margin: 0 10px;
+            text-decoration: none;
+            color: darkblue;
+            font-weight: bold;
+        }
+        footer
+        {
+            position: absolute;
+            bottom: 0;
+            width: 96vw;
+            color: white;
+            background-color: darkblue;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            padding: 10px;
+        }
