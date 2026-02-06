@@ -23,6 +23,19 @@ def student_delete(request,sid):
      record=Student.objects.get(id=sid)#select * from student where id=sid
      record.delete()
      return redirect('studentlist')
+
+def student_update(request,sid):
+     record=Student.objects.get(id=sid)
+     if request.method=="GET":
+        form=StudentForm(instance=record)#filled form with selected student record
+        return render(request,'students/update_form.html',{'form':form})
+     else:
+        form=StudentForm(request.POST,instance=record)
+        if form.is_valid():
+            form.save()
+        return redirect('studentlist')
+
+
 # def student_list(request):
 #     #data fetching data from db
 #     stud_records=[{'slno':1,'name':'rahul','course':'cs','sem':3},{'slno':2,'name':'reena','course':'cs','sem':3}]
