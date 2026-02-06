@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Student
 from .forms import StudentForm
@@ -9,11 +9,20 @@ def student_list(request):
     return render(request,'students/student_list.html',{'data':data,'count':len(data)})
 
 def student_form(request):
+        #when /students/form is called by browser
         if request.method=="GET":
             form=StudentForm()
             return render(request,'students/student_form.html',{'form':form})
-        else:
-             return HttpResponse("Form Submitted")
+        else:#when form is submitted /students/form is called in POST
+             form=StudentForm(request.POST)#filled form
+             if form.is_valid():#checking if form valid
+                  form.save()#make changes to db
+             return redirect('studentlist')#redirect check for the name in urls.py
+        
+def student_delete(request,sid):
+     record=Student.objects.get(id=sid)#select * from student where id=sid
+     record.delete()
+     return redirect('studentlist')
 # def student_list(request):
 #     #data fetching data from db
 #     stud_records=[{'slno':1,'name':'rahul','course':'cs','sem':3},{'slno':2,'name':'reena','course':'cs','sem':3}]

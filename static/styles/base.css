@@ -25,3 +25,16 @@
             font-size: 14px;
             padding: 10px;
         }
+        table{
+            border-collapse: collapse;
+        }
+        table th{
+            background-color: darkblue;
+            color:white;
+        }
+        #del_btn
+        {
+            text-decoration: none;
+            background-color: red;
+            color:white;
+        }

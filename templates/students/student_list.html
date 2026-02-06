@@ -4,10 +4,10 @@
     <h2>Total Students Enrolled {{count}}</h2>
     <h1>Student Details</h1>
     <table border="1">
-        <tr><th>Sl No</th><th>Name</th><th>Semester</th><th>Course</th></tr>
+        <tr><th>Sl No</th><th>Name</th><th>Semester</th><th>Course</th><th>Action</th></tr>
         {% for stud in data %}
         <tr>
-            <td>{{stud.slno}}</td><td>{{stud.name}}</td><td>{{stud.sem}}</td><td>{{stud.course}}</td>
+            <td>{{stud.slno}}</td><td>{{stud.name}}</td><td>{{stud.sem}}</td><td>{{stud.course}}</td><td><a id="del_btn" href="/students/delete/{{stud.id}}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
